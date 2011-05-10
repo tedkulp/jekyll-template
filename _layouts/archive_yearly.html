@@ -3,8 +3,13 @@ layout: default
 description: A description about my blog homepage
 ---
 
+    {% for m in (1..12) reversed %}
+        {% if page.collated_posts[page.year][m] %}
 <ul class="post-list clearfix">
-	{% for post in site.posts limit: 10 %}
+	{% for d in (1..31) reversed %}
+		{% if page.collated_posts[page.year][m][d] %}
+			{% for post in page.collated_posts[page.year][m][d] reversed %}
+
 	<li class="post-item clearfix">
 		<div class="title-block">
 			<h5 class="comments"> 
@@ -48,7 +53,11 @@ description: A description about my blog homepage
 		</aside>
 	</li>
 	{% endfor %}
+	{% endif %}
+	{% endfor %}
 </ul>
+	{% endif %}
+	{% endfor %}
 
 <!-- <div class="pagination">
 	<span class="disabled prev_page">&laquo; Previous</span> <span class="current">1</span> <a href="http://tedkulp.com?page=2" rel="next">2</a> <a href="http://tedkulp.com?page=3">3</a> <a href="http://tedkulp.com?page=4">4</a> <a href="http://tedkulp.com?page=5">5</a> <a href="http://tedkulp.com?page=6">6</a> <a href="http://tedkulp.com?page=2" class="next_page" rel="next">Next &raquo;</a>

@@ -7,10 +7,10 @@ markdown: rdiscount
 
 # configuration required for some pages
 
-domain: blog.example.com
-title: My Blog Title
-author: Me
-email: me@example.com
+domain: localhost:4000
+title: Ted Kulp
+author: Ted Kulp
+email: ted@tedkup.com
 
 # configuration for ehancements, uncomment to enable
 
@@ -20,8 +20,11 @@ email: me@example.com
 # google_analytics:
 #   account: UA-XXXXX-X
 
-# github:
-#   username: ghusername
+#github:
+#  username: tedkulp
 
-# disqus:
-#   id: disqusid
+disqus:
+  id: tedkulp
+
+
+tag_dir: tag

@@ -57,7 +57,7 @@ def cleanup
 end
 
 def jekyll(opts = '')
-  sh 'jekyll ' + opts
+  sh '../bin/jekyll ' + opts
 end
 
 def compass(opts = '')
