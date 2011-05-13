@@ -21,6 +21,7 @@ module Jekyll
       collated_posts = {}
       site.posts.reverse.each do |post|
         y, m, d = post.date.year, post.date.month, post.date.day
+		post.transform
         
         collated_posts[ y ] = {} unless collated_posts.key? y
         collated_posts[ y ][ m ] = {} unless collated_posts[y].key? m
@@ -62,6 +63,7 @@ module Jekyll
 
     def collate(site)
       site.posts.reverse.each do |post|
+		post.transform
         y, m, d = post.date.year, post.date.month, post.date.day
         
         self.collated_posts[ y ] = {} unless self.collated_posts.key? y

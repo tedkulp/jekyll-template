@@ -13,6 +13,7 @@ module Jekyll
       self.data['related'] = []
 	  self.data['posts'] = site.tags[tag].reverse
       site.tags[tag].each do |post|
+		post.transform #just in case
         post.tags.each do |rel| 
           self.data['related'].push(rel)
         end
