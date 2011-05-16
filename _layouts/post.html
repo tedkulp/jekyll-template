@@ -6,7 +6,7 @@ layout: default
 <div class="title-block">
 	<h5 class="comments"> 
 		<aside class="p_responses light"> 
-		<a href="{{ page.url }}#disqus_thread">0</a> 
+		<a href="{{ page.full_url }}#disqus_thread">0</a> 
 		</aside> 
 	</h5>
 	<h5 class="date">{{ page.date | date_to_string }}</h5>
@@ -20,14 +20,14 @@ layout: default
 		<li class="retweet-button">
 		<div class="posterous_tweet_button posterous_horizontal_count"> 
 			<a href="http://twitter.com/share" class="posterous_tweet_button twitter-share-button"
-				data-url="{{ page.url }}"
+				data-url="{{ page.full_url }}"
 				data-via="tedkulp"
 				data-text="{{ page.title }}"
 				data-count="none"
 				data-lang="en">Tweet</a> 
 			<!--
 			<script type="text/javascript">
-				var tweetcount_url = '{{ page.url }}';
+				var tweetcount_url = '{{ page.full_url }}';
 				var tweetcount_size = 'small';
 				</script>
 				<script type="text/javascript" src="http://widgets.backtype.com/tweetcount.js"></script>
@@ -36,7 +36,7 @@ layout: default
 			</li>
 			<li class="like-button">
 			<div class="posterous_retweet_widget">
-				<fb:like href="{{ page.url }}" layout="button_count"></fb:like>
+				<fb:like href="{{ page.full_url }}" layout="button_count"></fb:like>
 			</div>
 			</li>
 		</ul>
@@ -65,7 +65,7 @@ layout: default
 
 	// The following are highly recommended additional parameters. Remove the slashes in front to use.
 	// var disqus_identifier = 'unique_dynamic_id_1234';
-	var disqus_url = '{{ post.url }}';
+	var disqus_url = '{{ post.full_url }}';
 
 	/* * * DON'T EDIT BELOW THIS LINE * * */
 	(function() {

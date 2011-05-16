@@ -86,17 +86,19 @@ module Jekyll
 
       # First, try to find any stand-alone pages.
       site.pages.each{ |page|
-        path     = page.subfolder + '/' + page.name
-        mod_date = File.mtime(site.source + path)
+		path     = page.subfolder + '/' + page.name
+		if File.exists?(site.source + path)
+		  mod_date = File.mtime(site.source + path)
 
-        # Remove the trailing 'index.html' if there is one, and just output the folder name.
-        if path=~/index.html$/
-          path = path[0..-11]
-        end
+		  # Remove the trailing 'index.html' if there is one, and just output the folder name.
+		  if path=~/index.html$/
+		    path = path[0..-11]
+		  end
 
-        unless path =~/error/
-          result += entry(base_url, path, mod_date)
-        end
+		  unless path =~/error/
+		    result += entry(base_url, path, mod_date)
+		  end
+		end
       }
 
       # Next, find all the posts.

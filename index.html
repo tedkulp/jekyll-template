@@ -9,7 +9,7 @@ description: A description about my blog homepage
 		<div class="title-block">
 			<h5 class="comments"> 
 				<aside class="p_responses light"> 
-				<a href="{{ post.url }}#disqus_thread">0</a> 
+				<a href="{{ post.full_url }}#disqus_thread">0</a> 
 				</aside> 
 			</h5>
 			<h5 class="date">{{ post.date | date_to_string }}</h5>
@@ -23,14 +23,14 @@ description: A description about my blog homepage
 				<li class="retweet-button">
 				<div class="posterous_tweet_button posterous_horizontal_count"> 
 					<a href="http://twitter.com/share" class="posterous_tweet_button twitter-share-button"
-						data-url="{{ post.url }}"
+						data-url="{{ post.full_url }}"
 						data-via="tedkulp"
 						data-text="{{ post.title }}"
 						data-count="none"
 						data-lang="en">Tweet</a> 
 					<!--
 					<script type="text/javascript">
-						var tweetcount_url = '{{ post.url }}';
+						var tweetcount_url = '{{ post.full_url }}';
 						var tweetcount_size = 'small';
 					</script>
 					<script type="text/javascript" src="http://widgets.backtype.com/tweetcount.js"></script>
@@ -39,7 +39,7 @@ description: A description about my blog homepage
 				</li>
 				<li class="like-button">
 					<div class="posterous_retweet_widget">
-						<fb:like href="{{ post.url }}" layout="button_count"></fb:like>
+						<fb:like href="{{ post.full_url }}" layout="button_count"></fb:like>
 					</div>
 				</li>
 			</ul>
