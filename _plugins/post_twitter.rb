@@ -12,28 +12,31 @@ module Jekyll
 
     def post_render(post)
       should_blast?(post) do
-        begin
-          Twitter.configure do |config|
-            config.consumer_key = post.site.config['twitter']['consumer_key']
-            config.consumer_secret = post.site.config['twitter']['consumer_secret']
-            config.oauth_token = post.site.config['twitter']['oauth_token']
-            config.oauth_token_secret = post.site.config['twitter']['oauth_token_secret']
+        c = post.site.config
+        if c.has_key?('twitter') and c['twitter'].has_key?('consumer_key') and c['twitter'].has_key?('consumer_secret') and c['twitter'].has_key?('oauth_token') and c['twitter'].has_key?('oauth_token_secret')
+          begin
+            Twitter.configure do |config|
+              config.consumer_key = c['twitter']['consumer_key']
+              config.consumer_secret = c['twitter']['consumer_secret']
+              config.oauth_token = c['twitter']['oauth_token']
+              config.oauth_token_secret = c['twitter']['oauth_token_secret']
+            end
+
+            #Grab the bitly URL
+            url = self.shortened_url(post)
+
+            #Make a title string
+            title = 'Post: ' + post.data['title']
+
+            #Shrink it so it's twitter friendly
+            msg = truncate(title, 140 - url.size - 3) + " - " + url
+
+            #Blast it to the world
+            client = Twitter::Client.new
+            client.update(msg)
+          rescue Twitter::Forbidden
+            puts "Twitter updated failed: continuing..."
           end
-
-          #Grab the bitly URL
-          url = self.shortened_url(post)
-
-          #Make a title string
-          title = 'Post: ' + post.data['title']
-
-          #Shrink it so it's twitter friendly
-          msg = truncate(title, 140 - url.size - 3) + " - " + url
-
-          #Blast it to the world
-          client = Twitter::Client.new
-          client.update(msg)
-        rescue Twitter::Forbidden
-          puts "Twitter updated failed: continuing..."
         end
       end
     end

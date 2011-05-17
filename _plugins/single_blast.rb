@@ -9,17 +9,18 @@ module Jekyll
         if block_given?
           yield post
           write_record(post)
-        else
-          true
         end
+        true
       else
         false
       end
     end
 
     def connection(post)
-      @@db ||= Mongo::Connection.new(post.site.config['single_blast']['hostname'], post.site.config['single_blast']['port']).db(post.site.config['single_blast']['db_name'])
-      @@db.authenticate(post.site.config['single_blast']['username'], post.site.config['single_blast']['password'])
+      @@db ||= post.site.config.has_key?('single_blast') ? Mongo::Connection.new(post.site.config['single_blast']['hostname'], post.site.config['single_blast']['port']).db(post.site.config['single_blast']['db_name']) : nil
+      unless @@db.nil?
+        @@db.authenticate(post.site.config['single_blast']['username'], post.site.config['single_blast']['password'])
+      end
       @@db
     end
 
@@ -29,7 +30,7 @@ module Jekyll
     end
 
     def record_exists?(post)
-      documents(post).include?(post.id)
+      !post.site.config.has_key?('single_blast') or documents(post).include?(post.id)
     end
 
     def write_record(post)
