@@ -38,4 +38,11 @@ email: user@domain.com
 #  username: 'username'
 #  api_key: 'abc123'
 
+#single_blast:
+#  hostname: 'localhost'
+#  username: 'username'
+#  password: 'abc123'
+#  port: 27012
+#  db_name: 'blogged'
+
 #tag_dir: tag
