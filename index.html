@@ -4,7 +4,7 @@ description: A description about my blog homepage
 ---
 
 <ul class="post-list clearfix">
-	{% for post in site.posts limit: 10 %}
+	{% for post in paginator.posts %}
 	<li class="post-item clearfix">
 		<div class="title-block">
 			<h5 class="comments"> 
@@ -19,30 +19,6 @@ description: A description about my blog homepage
 			<div class="copy" id="post_51441582">
 				{{ post.content }}
 			</div>
-			<ul class="social">
-				<li class="retweet-button">
-				<div class="posterous_tweet_button posterous_horizontal_count"> 
-					<a href="http://twitter.com/share" class="posterous_tweet_button twitter-share-button"
-						data-url="{{ post.full_url }}"
-						data-via="tedkulp"
-						data-text="{{ post.title }}"
-						data-count="none"
-						data-lang="en">Tweet</a> 
-					<!--
-					<script type="text/javascript">
-						var tweetcount_url = '{{ post.full_url }}';
-						var tweetcount_size = 'small';
-					</script>
-					<script type="text/javascript" src="http://widgets.backtype.com/tweetcount.js"></script>
-					-->
-				</div> 
-				</li>
-				<li class="like-button">
-					<div class="posterous_retweet_widget">
-						<fb:like href="{{ post.full_url }}" layout="button_count"></fb:like>
-					</div>
-				</li>
-			</ul>
 		</div>
 		<aside class="p_responses light"> 
 		</aside>
@@ -50,9 +26,18 @@ description: A description about my blog homepage
 	{% endfor %}
 </ul>
 
-<!-- <div class="pagination">
-	<span class="disabled prev_page">&laquo; Previous</span> <span class="current">1</span> <a href="http://tedkulp.com?page=2" rel="next">2</a> <a href="http://tedkulp.com?page=3">3</a> <a href="http://tedkulp.com?page=4">4</a> <a href="http://tedkulp.com?page=5">5</a> <a href="http://tedkulp.com?page=6">6</a> <a href="http://tedkulp.com?page=2" class="next_page" rel="next">Next &raquo;</a>
-</div> -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page != 1 %}
+      <a href="/page{{ paginator.previous_page }}" class="prev_page" rel="prev">&laquo; Previous Page</a>
+    {% else %}
+      <a href="/" class="prev_page" rel="prev">&laquo; Previous Page</a>
+    {% endif %}
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="/page{{ paginator.next_page }}" class="next_page" rel="next">Next Page &raquo;</a>
+  {% endif %}
+</div>
 
 <!--
 <div id="pages">

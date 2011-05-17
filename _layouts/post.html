@@ -18,29 +18,29 @@ layout: default
 	</div>
 	<ul class="social">
 		<li class="retweet-button">
-		<div class="posterous_tweet_button posterous_horizontal_count"> 
-			<a href="http://twitter.com/share" class="posterous_tweet_button twitter-share-button"
-				data-url="{{ page.full_url }}"
-				data-via="tedkulp"
-				data-text="{{ page.title }}"
-				data-count="none"
-				data-lang="en">Tweet</a> 
-			<!--
-			<script type="text/javascript">
-				var tweetcount_url = '{{ page.full_url }}';
-				var tweetcount_size = 'small';
-				</script>
+      <div class="posterous_tweet_button posterous_horizontal_count"> 
+        <!-- 
+        <a href="http://twitter.com/share" class="posterous_tweet_button twitter-share-button"
+          data-url="{{ page.full_url }}"
+          data-via="tedkulp"
+          data-text="{{ page.title }}"
+          data-count="none"
+          data-lang="en">Tweet</a> 
+        -->
+        <script type="text/javascript">
+          var tweetcount_url = '{{ page.full_url }}';
+          var tweetcount_size = 'large';
+        </script>
 				<script type="text/javascript" src="http://widgets.backtype.com/tweetcount.js"></script>
-				-->
-			</div> 
-			</li>
-			<li class="like-button">
-			<div class="posterous_retweet_widget">
-				<fb:like href="{{ page.full_url }}" layout="button_count"></fb:like>
 			</div>
-			</li>
-		</ul>
-	</div>
+    </li>
+    <li class="like-button">
+			<div class="posterous_retweet_widget">
+				<fb:like href="{{ page.full_url }}" layout="box_count"></fb:like>
+			</div>
+    </li>
+  </ul>
+</div>
 <aside class="p_responses light"> 
 </aside>
 
