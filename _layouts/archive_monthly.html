@@ -22,30 +22,12 @@ description: A description about my blog homepage
 			<div class="copy" id="post_51441582">
 				{{ post.content }}
 			</div>
-			<ul class="social">
-				<li class="retweet-button">
-				<div class="posterous_tweet_button posterous_horizontal_count"> 
-					<a href="http://twitter.com/share" class="posterous_tweet_button twitter-share-button"
-						data-url="{{ post.full_url }}"
-						data-via="tedkulp"
-						data-text="{{ post.title }}"
-						data-count="none"
-						data-lang="en">Tweet</a> 
-					<!--
-					<script type="text/javascript">
-						var tweetcount_url = '{{ post.full_url }}';
-						var tweetcount_size = 'small';
-					</script>
-					<script type="text/javascript" src="http://widgets.backtype.com/tweetcount.js"></script>
-					-->
-				</div> 
-				</li>
-				<li class="like-button">
-					<div class="posterous_retweet_widget">
-						<fb:like href="{{ post.full_url }}" layout="button_count"></fb:like>
-					</div>
-				</li>
-			</ul>
+      <ul class="social">
+        <li class="retweet-button">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-text="{{ post.title }}" data-count="horizontal" data-lang="en">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
+          <iframe src="http://www.facebook.com/plugins/like.php?href={{ post.full_url }}&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;font=lucida+grande&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:85px; height:21px;" allowTransparency="true"></iframe> 
+        </li>
+      </ul>
 		</div>
 		<aside class="p_responses light"> 
 		</aside>
