@@ -45,4 +45,11 @@ email: user@domain.com
 #  port: 27012
 #  db_name: 'blogged'
 
+#metaweblog:
+#  domain: 'hostname.com'
+#  endpoint: '/xmlrpc.php'
+#  username: 'username'
+#  password: 'abc123'
+#  blog_id: 'blog'
+
 #tag_dir: tag

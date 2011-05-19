@@ -11,9 +11,9 @@ module Jekyll
       self.data['tag'] = tag
 
       self.data['related'] = []
-	  self.data['posts'] = site.tags[tag].reverse
+      self.data['posts'] = site.tags[tag].reverse
       site.tags[tag].each do |post|
-		post.transform #just in case
+        post.transform
         post.tags.each do |rel| 
           self.data['related'].push(rel)
         end
@@ -58,15 +58,13 @@ module Jekyll
     def write_tag_index(site, dir, tag)
       index = TagIndex.new(site, site.source, dir, tag)
       index.render(site.layouts, site.site_payload)
-      index.write(site.dest)
-      site.static_files << index
+      site.pages << index
     end
 
     def write_tag_list(site, dir, tags)
       index = TagList.new(site, site.source, dir, tags)
       index.render(site.layouts, site.site_payload)
-      index.write(site.dest)
-      site.static_files << index
+      site.pages << index
     end
   end
 

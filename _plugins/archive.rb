@@ -21,7 +21,7 @@ module Jekyll
       collated_posts = {}
       site.posts.reverse.each do |post|
         y, m, d = post.date.year, post.date.month, post.date.day
-		post.transform
+        post.transform
         
         collated_posts[ y ] = {} unless collated_posts.key? y
         collated_posts[ y ][ m ] = {} unless collated_posts[y].key? m
@@ -41,7 +41,7 @@ module Jekyll
     def generate(site)
       self.collated_posts = {}
       collate(site)
-	  site.collated_posts = self.collated_posts
+      site.collated_posts = self.collated_posts
 
       self.collated_posts.keys.each do |y|
         write_archive_index(site, y.to_s, 'archive_yearly') if site.layouts.key? 'archive_yearly'
@@ -57,13 +57,12 @@ module Jekyll
     def write_archive_index(site, dir, type)
       archive = ArchiveIndex.new(site, site.source, dir, type)
       archive.render(site.layouts, site.site_payload)
-      archive.write(site.dest)
-      site.static_files << archive
+      site.pages << archive
     end
 
     def collate(site)
       site.posts.reverse.each do |post|
-		post.transform
+        post.transform
         y, m, d = post.date.year, post.date.month, post.date.day
         
         self.collated_posts[ y ] = {} unless self.collated_posts.key? y

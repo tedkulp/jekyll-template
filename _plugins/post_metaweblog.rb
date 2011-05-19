@@ -8,7 +8,7 @@ module Jekyll
 
     require 'xmlrpc/client'
 
-    def post_render(post)
+    def post_write(post)
       should_blast?(post) do
         c = post.site.config
         if c.has_key?('metaweblog') and c['metaweblog'].has_key?('domain') and c['metaweblog'].has_key?('endpoint') and c['metaweblog'].has_key?('blog_id') and c['metaweblog'].has_key?('username')

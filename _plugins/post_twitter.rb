@@ -10,7 +10,7 @@ module Jekyll
 
     require 'twitter'
 
-    def post_render(post)
+    def post_write(post)
       should_blast?(post) do
         c = post.site.config
         if c.has_key?('twitter') and c['twitter'].has_key?('consumer_key') and c['twitter'].has_key?('consumer_secret') and c['twitter'].has_key?('oauth_token') and c['twitter'].has_key?('oauth_token_secret')
