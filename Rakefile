@@ -53,7 +53,7 @@ task :check_links do
 end
 
 def cleanup
-  sh 'rm -rf _site'
+  #sh 'rm -rf _site'
 end
 
 def jekyll(opts = '')

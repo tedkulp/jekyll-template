@@ -11,13 +11,15 @@ module Jekyll
       self.data['tag'] = tag
 
       self.data['related'] = []
-      self.data['posts'] = site.tags[tag].reverse
+      self.data['posts'] = []
       site.tags[tag].each do |post|
         post.transform
+        self.data['posts'] << post
         post.tags.each do |rel| 
           self.data['related'].push(rel)
         end
       end
+      self.data['posts'] = self.data['posts'].uniq.sort.reverse
       self.data['related'] = self.data['related'].uniq
 
       tag_title_prefix = site.config['tag_title_prefix'] || 'Tags: '
