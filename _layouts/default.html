@@ -1,159 +1,118 @@
 <!DOCTYPE html>
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-		<meta name="width" content="500" />
-		<meta name="generator" content="Posterous" />
-		<link href="/bundles/posts.css" media="screen" rel="stylesheet" type="text/css" />
-		<!--[if lt IE 9]>
-      <link href="/bundles/ie.css" media="screen" rel="stylesheet" type="text/css" />
-		<![endif]-->  
-		<link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/tedkulp" />
-		<meta name="medium" content="blog" />
-		<link rel="image_src" href="http://files.posterous.com/user_profile_pics/509939/2214550.jpg" />
-		<!--[if lt IE 9]>
-      <script src="/javascripts/html5.js" type="text/javascript"></script>
-      <script src="/javascripts/innershiv.js" type="text/javascript"></script>
-		<![endif]-->
-		<link rel="canonical" href="http://tedkulp.com" />
-		<link href="/themes/choice/post-style.css" rel="stylesheet" type="text/css" />
-		<!--[if lte IE 8]>
-      <link href="/themes/choice/ie-style.css" rel="stylesheet" type="text/css" />
-		<![endif]-->
-		{% if site.feedburner %}
-		<link href="http://feeds.feedburner.com/{{ site.feedburner.id }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml" />
-		{% endif %}
-		{% if site.google_analytics %}
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', '{{ site.google_analytics.account }}']);
-		  _gaq.push(['_trackPageview']);
-		  (function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		</script>
-		{% endif %}
-		<link href="http://fonts.googleapis.com/css?family=Lobster&amp;subset=latin" rel="stylesheet" type="text/css" />
-		<title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-	</head>
-	<body>
-		<div class="posterous_site_data" data-post-id="undefined" data-posterous-hostname="posterous.com" data-show-type="site" data-site-id="231676" data-site-location="false" data-site-type="posterous" data-user-id="86658"></div>
-		<div class="posterous_ojs" data-posterous-admin-box="true"></div><div class="posterousPrivateBox"> 
-		</div> 
-		<div id="header-container">
-			<div id="header">
-				<h1 class="site-name"><a href="/">Ted Kulp</a></h1>
-				<p class="site-description">Status Quo is Lame</p>
-			</div>
-		</div>
-		<div id="pages-container">
-			<div id="pages">
-				<ul>
-					<li><a href="http://about.me/tedkulp" title="About.Me" class="">About.Me</a></li>
-					<li><a href="http://archive.tedkulp.com" title="My Life Archive" class="">My Life Archive</a></li>
-					<li><a href="http://dl.dropbox.com/u/201552/bucketlist.html" title="My Bucket List" class="">My Bucket List</a></li>
-					<li><a href="http://gpg.tedkulp.com" title="GPG Key" class="">GPG Key</a></li>
-				</ul>
-			</div>
-		</div>
+  <head>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 8]>
+    <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/tedkulp" />
+    <meta name="medium" content="blog" />
+    <link rel="canonical" href="http://tedkulp.com" />
+    {% if site.feedburner %}
+    <link href="http://feeds.feedburner.com/{{ site.feedburner.id }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml" />
+    {% endif %}
+    {% if site.google_analytics %}
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '{{ site.google_analytics.account }}']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+    </script>
+    {% endif %}
+  </head>
+  <body class='bp'>
+    <div id='container' class='container'>
+      <div class='two_col'>
+        <div id="header">
+          <h1 class="site-name"><a href="/">Ted Kulp</a></h1>
+          <p class="site-description">Status Quo is Lame</p>
+        </div>
+        <div id="content">
+          {{content}}
+        </div>
+        <div id="sidebar">
+          <div id="other_pages">
+            <h3 class="caps">Ted's Other Sites</h3>
+            <div class="box">
+              <ul>
+                <li><a href="http://about.me/tedkulp" title="About.Me">About.Me</a></li>
+                <li><a href="http://archive.tedkulp.com" title="My Life Archive">My Life Archive</a></li>
+                <li><a href="http://dl.dropbox.com/u/201552/bucketlist.html" title="My Bucket List">My Bucket List</a></li>
+                <li><a href="http://gpg.tedkulp.com" title="GPG Key">GPG Key</a></li>
+                <li><a href="http://shiftrefresh.net">Shift Refresh</a></li>
+                <li><a href="http://altsonparade.com">Alts On Parade</a></li>
+                <li><a href="http://cmsmadesimple.org">CMS Made Simple</a></li>
+                <li><a href="http://silkframework.com">Silk Framework</a></li>
+              </ul>
+            </div>
+          </div>
+          <div id="archive">
+            <h3 class="caps">Archive</h3>
+            <div class="box">
+              <ul class="archive">
+                {% for y in site.collated_posts %}
+                  <li>
+                    <a href="/{{ y[0] }}/">{{ y[0] }}</a> <span>({{ y[1] | deep_count }})</span>
+                    {% for m in y[1] %}
+                      <ul id="archive_months2011">
+                        <li class="inner"><a href="/{{ y[0] }}/{{ m[0] | pad_number }}/">{{ m[0] | month_name }} </a> <span>({{ m[1] | deep_count }})</span></li>
+                      </ul>
+                    {% endfor %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div id="tags">
+            <h3 class="caps">Tags</h3>
+            <div class="box">
+              <ul>
+                {% for tag in site.tags | sort %}
+                  <li> <a href="/tag/{{ tag[0] }}">{{ tag[0] }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
 
-		<ul class="clearfix" id="container">
-			<li id="left-column">
-				{{content}}
-			</li>
+        <div id="footer">
+          <h4>Ted Kulp</h4>
+          <p>Family Man. Open Source Developer. Creator of CMS Made Simple and Silk Framework. Dork Extraordinaire.</p>
+          <h4>Get Updates</h4>
+          <div class="subscribe_to_mysite clearfix">
+            <div><a href="http://feeds.feedburner.com/tedkulp" class="subscribe_link" target="_blank">Subscribe via RSS</a> </div>
+            <div class="social-bookmarks">
+              <a href="http://twitter.com/tedkulp" class="p_external_site p_twitter" rel="me">Twitter</a><a href="http://www.facebook.com/profile.php?id=520346975" class="p_external_site p_facebook" rel="me">Facebook</a><a href="http://flickr.com/photos/wishy" class="p_external_site p_flickr" rel="me">Flickr</a><a href="http://vimeo.com/tedkulp/videos" class="p_external_site p_vimeo" rel="me">Vimeo</a><a href="http://www.youtube.com/profile?user=shiftrefresh" class="p_external_site p_youtube" rel="me">Youtube</a><a href="http://archive.tedkulp.com" class="p_external_site p_drupal" rel="me">metaweblog</a>
+            </div>
+          </div>
+        </div>
 
-			<li id="right-column">
-			<ul class="right-column-content">
-				<!--
-				<li class="search-bar clearfix">
-				<h4>Search</h4>
-				<form class="search-form clearfix" method="get">
-					<input name="sort" value="" type="hidden" />
-					<input name="search" class="search" id="searchbox" value="" type="text" />
-					<input class="search_button" value="Search" type="submit" />
-				</form>
-				</li>
-				-->
-				<li class="list clearfix">
-				<h4>Ted's Other Sites</h4>
-				<ul>
-					<li><a href="http://shiftrefresh.net">Shift Refresh</a></li>
-					<li><a href="http://altsonparade.com">Alts On Parade</a></li>
-					<li><a href="http://cmsmadesimple.org">CMS Made Simple</a></li>
-					<li><a href="http://silkframework.com">Silk Framework</a></li>
-				</ul>
-				</li>
-				<li class="tags clearfix">
-				<h4>Tags</h4>
-				<ul>
-					{% for tag in site.tags | sort %}
-						<li> <a href="/tag/{{ tag[0] }}">{{ tag[0] }}</a></li>
-					{% endfor %}
-				</ul>
-				</li>
+        {% if site.disqus %}
+          <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = '{{ site.disqus.id }}'; // required: replace example with your forum shortname
 
-				<li class="list clearfix">
-				<h4>Archive</h4>
-				<ul class="archive">
-					{% for y in site.collated_posts %}
-						<li>
-							<a href="/{{ y[0] }}/">{{ y[0] }}</a> <span>({{ y[1] | deep_count }})</span>
-							{% for m in y[1] %}
-							<ul id="archive_months2011">
-								<li class="inner"><a href="/{{ y[0] }}/{{ m[0] | pad_number }}/">{{ m[0] | month_name }} </a> <span>({{ m[1] | deep_count }})</span></li>
-							</ul>
-							{% endfor %}
-						</li>
-					{% endfor %}
-				</ul>
-				</li>
-				<li class="copyright"> <a href="http://www.obox-design.com/" class="visit-obox"><img src="/images/obox-logo.png" alt="Obox Design" /></a> </li>
-			</ul>
-			</li>
-		</ul>
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+             var s = document.createElement('script'); s.async = true;
+             s.type = 'text/javascript';
+             s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+             }());
+          </script>
+        {% endif %}
 
-		<div id="footer-container">
-			<div id="footer">
+        {% if site.github %}
+          <a href="http://github.com/{{ site.github.username }}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+        {% endif %}
 
-				<ul class="three-column clearfix">
-					<li class="column clearfix">
-					<h4>Ted Kulp</h4>
-					<p>Family Man. Open Source Developer. Creator of CMS Made Simple and Silk Framework. Dork Extraordinaire.</p>
-					<!-- <div class="siteviews">47865 Views</div> -->
-					</li>
-					<li class="column clearfix">
-					<h4>Get Updates</h4>
-					<div class="subscribe_to_mysite clearfix">
-						<div><a href="http://feeds.feedburner.com/tedkulp" class="subscribe_link" target="_blank">Subscribe via RSS</a> </div>
-						<div class="social-bookmarks">
-							<a href="http://twitter.com/tedkulp" class="p_external_site p_twitter" rel="me">Twitter</a><a href="http://www.facebook.com/profile.php?id=520346975" class="p_external_site p_facebook" rel="me">Facebook</a><a href="http://flickr.com/photos/wishy" class="p_external_site p_flickr" rel="me">Flickr</a><a href="http://vimeo.com/tedkulp/videos" class="p_external_site p_vimeo" rel="me">Vimeo</a><a href="http://www.youtube.com/profile?user=shiftrefresh" class="p_external_site p_youtube" rel="me">Youtube</a><a href="http://archive.tedkulp.com" class="p_external_site p_drupal" rel="me">metaweblog</a>
-						</div>
-					</div>
-					</li>			
-				</ul>
-
-			</div>
-		</div>
-
-		<script src="/bundles/sites.js?1304205459" type="text/javascript"></script> 
-		{% if site.disqus %}
-		<script type="text/javascript">
-			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-			var disqus_shortname = '{{ site.disqus.id }}'; // required: replace example with your forum shortname
-
-			/* * * DON'T EDIT BELOW THIS LINE * * */
-			(function () {
-				var s = document.createElement('script'); s.async = true;
-				s.type = 'text/javascript';
-				s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-				(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-			}());
-		</script>
-		{% endif %}
-	  {% if site.github %}
-		<a href="http://github.com/{{ site.github.username }}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
-	  {% endif %}
-	</body>
+      </div>
+    </div>
+  </body>
 </html>

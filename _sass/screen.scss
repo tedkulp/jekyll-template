@@ -1,3 +1,56 @@
-@import "mixins/syntax";
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
 
-// add your styles, see http://compass-style.org/
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding";
+
+// To generate css equivalent to the blueprint css but with your
+// configuration applied, uncomment:
+// @include blueprint
+
+//@import "mixins/syntax";
+
+// If you are doing a lot of stylesheet concatenation, it is suggested
+// that you scope your blueprint styles, so that you can better control
+// what pages use blueprint when stylesheets are concatenated together.
+body.bp {
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
+  // Remove the scaffolding when you're ready to start doing visual design.
+  // Or leave it in if you're happy with how blueprint looks out-of-the-box
+}
+
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+.two_col {
+  @include container;
+  #header, #footer {
+    @include column(24, last);
+    background-color: #999;
+  }
+  #content {
+    @include column(17);
+    @include colborder();
+  }
+  #sidebar {
+    @include column(6, true);
+    ul {
+      // list-style-type: none;
+    }
+    #other_pages, #tags, #archive {
+      @include prepend-top();
+    }
+  }
+  code {
+    font-size: 12px;
+    font-family: 'Courier New','Terminal',monospace;
+    line-height: 14px;
+  }
+}
