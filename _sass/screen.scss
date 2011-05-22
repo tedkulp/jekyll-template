@@ -33,11 +33,30 @@ body.bp {
   @include container;
   #header, #footer {
     @include column(24, last);
-    background-color: #999;
+    background-color: #2F3035;
+    h1.site-name {
+      padding: 0px;
+      margin: 0px 0px 10px;
+      font-size: 40px;
+      line-height: 40px;
+      font-family: "Lobster", arial, serif;
+      position: relative;
+    }
+    p.site-description {
+      font-size: 15px;
+      width: 520px;
+      line-height: 1.4em;
+      color: #999;
+    }
+  }
+  #header {
+    padding: 20px 0px 20px 1em;
+    border-bottom: 1px solid black;
   }
   #content {
     @include column(17);
     @include colborder();
+    padding: 1em;
   }
   #sidebar {
     @include column(6, true);
