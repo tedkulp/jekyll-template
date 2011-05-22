@@ -26,17 +26,19 @@
        })();
     </script>
     {% endif %}
+    <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Six+Caps" rel="stylesheet" type="text/css">
   </head>
   <body class='bp'>
     <div id='container' class='container'>
       <div class='two_col'>
         <div id="header">
           <h1 class="site-name"><a href="/">Ted Kulp</a></h1>
-          <p class="site-description">Status Quo is Lame</p>
         </div>
         <div id="content">
           {{content}}
         </div>
+        {% comment %}
         <div id="sidebar">
           <div id="other_pages">
             <h3 class="caps">Ted's Other Sites</h3>
@@ -81,16 +83,50 @@
             </div>
           </div>
         </div>
+        {% endcomment %}
 
         <div id="footer">
-          <h4>Ted Kulp</h4>
-          <p>Family Man. Open Source Developer. Creator of CMS Made Simple and Silk Framework. Dork Extraordinaire.</p>
-          <h4>Get Updates</h4>
-          <div class="subscribe_to_mysite clearfix">
-            <div><a href="http://feeds.feedburner.com/tedkulp" class="subscribe_link" target="_blank">Subscribe via RSS</a> </div>
-            <div class="social-bookmarks">
-              <a href="http://twitter.com/tedkulp" class="p_external_site p_twitter" rel="me">Twitter</a><a href="http://www.facebook.com/profile.php?id=520346975" class="p_external_site p_facebook" rel="me">Facebook</a><a href="http://flickr.com/photos/wishy" class="p_external_site p_flickr" rel="me">Flickr</a><a href="http://vimeo.com/tedkulp/videos" class="p_external_site p_vimeo" rel="me">Vimeo</a><a href="http://www.youtube.com/profile?user=shiftrefresh" class="p_external_site p_youtube" rel="me">Youtube</a><a href="http://archive.tedkulp.com" class="p_external_site p_drupal" rel="me">metaweblog</a>
-            </div>
+          <div id="footer-about">
+            <h4>About</h4>
+            <p>Family Man. PHP and Ruby Developer. Open Source fanatic. Creator of CMS Made Simple and Silk Framework. Dork Extraordinaire.</p>
+            <h4>Ted's Other Sites</h4>
+            <ul class='links'>
+              <li><a href="http://about.me/tedkulp" title="About.Me">About.Me</a></li>
+              <li><a href="http://archive.tedkulp.com" title="My Life Archive">My Life Archive</a></li>
+              <li><a href="http://dl.dropbox.com/u/201552/bucketlist.html" title="My Bucket List">My Bucket List</a></li>
+              <li><a href="http://gpg.tedkulp.com" title="GPG Key">GPG Key</a></li>
+              <li><a href="http://shiftrefresh.net">Shift Refresh</a></li>
+              <li><a href="http://altsonparade.com">Alts On Parade</a></li>
+              <li><a href="http://cmsmadesimple.org">CMS Made Simple</a></li>
+              <li><a href="http://silkframework.com">Silk Framework</a></li>
+            </ul>
+          </div>
+          <div id="footer-tags">
+            <h4>Tags</h4>
+            <p>
+              {% for tag in site.tags | sort %}
+                <span class="tag-link"><a href="/tag/{{ tag[0] }}">{{ tag[0] }}</a></span>
+              {% endfor %}
+            </p>
+            <h4>Get Updates</h4>
+            <p>
+              <a href="http://feeds.feedburner.com/tedkulp" class="subscribe_link" target="_blank">Subscribe via RSS</a>
+            </p>
+          </div>
+          <div id="footer-archive">
+            <h4>Archive</h4>
+            <ul class="archive">
+              {% for y in site.collated_posts %}
+                <li>
+                <a href="/{{ y[0] }}/">{{ y[0] }}</a> <span>({{ y[1] | deep_count }})</span>
+                {% for m in y[1] %}
+                  <ul id="archive_months2011">
+                    <li class="inner"><a href="/{{ y[0] }}/{{ m[0] | pad_number }}/">{{ m[0] | month_name }} </a> <span>({{ m[1] | deep_count }})</span></li>
+                  </ul>
+                {% endfor %}
+                </li>
+              {% endfor %}
+            </ul>
           </div>
         </div>
 
