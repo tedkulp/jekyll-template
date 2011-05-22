@@ -34,57 +34,11 @@
       <div class='two_col'>
         <div id="header">
           <h1 class="site-name"><a href="/">Ted Kulp</a></h1>
+          <p class="tag-line">Code, Photos, Assorted Nonsense</p>
         </div>
         <div id="content">
           {{content}}
         </div>
-        {% comment %}
-        <div id="sidebar">
-          <div id="other_pages">
-            <h3 class="caps">Ted's Other Sites</h3>
-            <div class="box">
-              <ul>
-                <li><a href="http://about.me/tedkulp" title="About.Me">About.Me</a></li>
-                <li><a href="http://archive.tedkulp.com" title="My Life Archive">My Life Archive</a></li>
-                <li><a href="http://dl.dropbox.com/u/201552/bucketlist.html" title="My Bucket List">My Bucket List</a></li>
-                <li><a href="http://gpg.tedkulp.com" title="GPG Key">GPG Key</a></li>
-                <li><a href="http://shiftrefresh.net">Shift Refresh</a></li>
-                <li><a href="http://altsonparade.com">Alts On Parade</a></li>
-                <li><a href="http://cmsmadesimple.org">CMS Made Simple</a></li>
-                <li><a href="http://silkframework.com">Silk Framework</a></li>
-              </ul>
-            </div>
-          </div>
-          <div id="archive">
-            <h3 class="caps">Archive</h3>
-            <div class="box">
-              <ul class="archive">
-                {% for y in site.collated_posts %}
-                  <li>
-                    <a href="/{{ y[0] }}/">{{ y[0] }}</a> <span>({{ y[1] | deep_count }})</span>
-                    {% for m in y[1] %}
-                      <ul id="archive_months2011">
-                        <li class="inner"><a href="/{{ y[0] }}/{{ m[0] | pad_number }}/">{{ m[0] | month_name }} </a> <span>({{ m[1] | deep_count }})</span></li>
-                      </ul>
-                    {% endfor %}
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-          <div id="tags">
-            <h3 class="caps">Tags</h3>
-            <div class="box">
-              <ul>
-                {% for tag in site.tags | sort %}
-                  <li> <a href="/tag/{{ tag[0] }}">{{ tag[0] }}</a></li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-        </div>
-        {% endcomment %}
-
         <div id="footer">
           <div id="footer-about">
             <h4>About</h4>

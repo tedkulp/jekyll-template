@@ -50,10 +50,15 @@ body.bp {
         text-decoration: none;
       }
     }
+    p.tag-line {
+      font-size: 14px;
+      color: #bbb;
+      font-style: italic;
+    }
   }
   #header {
-    height: 60px;
-    padding: 20px 0px 30px 20px;
+    height: 50px;
+    padding: 20px 0 30px 20px;
     border-bottom: 1px solid black;
   }
   #footer {
