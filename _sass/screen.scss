@@ -152,6 +152,7 @@ body.bp {
     .highlight {
       pre {
         background-color: $border-background-color;
+        overflow: auto;
         color: #eee;
       }
     }
