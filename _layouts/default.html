@@ -57,10 +57,8 @@
           </div>
           <div id="footer-tags">
             <h4>Tags</h4>
-            <p>
-              {% for tag in site.tags | sort %}
-                <span class="tag-link"><a href="/tag/{{ tag[0] }}">{{ tag[0] }}</a></span>
-              {% endfor %}
+            <p class="tag-cloud">
+              {% tag_cloud %}
             </p>
             <h4>Get Updates</h4>
             <p>
