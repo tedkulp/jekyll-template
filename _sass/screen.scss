@@ -171,11 +171,13 @@ body.bp {
         background-color: $border-background-color;
         overflow: auto;
         color: #eee;
+        padding: 5px;
       }
     }
     code {
       font-size: 12px;
-      font-family: 'Courier New','Terminal',monospace;
+      #font-family: 'Courier New','Terminal',monospace;
+      font-family: 'Bitstream Vera Sans Mono', monospace;
       line-height: 14px;
     }
   }
