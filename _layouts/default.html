@@ -26,8 +26,13 @@
        })();
     </script>
     {% endif %}
-    <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
-    <link href="http://fonts.googleapis.com/css?family=Six+Caps" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
+    <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js"></script>
+    <link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeRDark.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css' />
+    <link href="http://fonts.googleapis.com/css?family=Six+Caps" rel="stylesheet" type="text/css" />
   </head>
   <body class='bp'>
     <div id='container' class='container'>
@@ -103,5 +108,48 @@
 
       </div>
     </div>
+    <script type="text/javascript">
+      // Copy the code's classname into the pre
+      // Then copy the conent to the parent delete the code tag
+      $('pre code[class]').each(function() {
+        $(this).parent().attr('class', "brush:" + $(this).attr('class'));
+        $(this).parent().html($(this).html());
+      });
+      function syn_path()
+      {
+        var args = arguments, result = [];
+        for(var i = 0; i < args.length; i++)
+          result.push(args[i].replace('@', 'http://alexgorbatchev.com/pub/sh/current/scripts/shBrush'));
+        return result
+      };
+
+      SyntaxHighlighter.autoloader.apply(null, syn_path(
+        'applescript            @AppleScript.js',
+        'actionscript3 as3      @AS3.js',
+        'bash shell             @Bash.js',
+        'coldfusion cf          @ColdFusion.js',
+        'cpp c                  @Cpp.js',
+        'c# c-sharp csharp      @CSharp.js',
+        'css                    @Css.js',
+        'delphi pascal          @Delphi.js',
+        'diff patch pas         @Diff.js',
+        'erl erlang             @Erlang.js',
+        'groovy                 @Groovy.js',
+        'java                   @Java.js',
+        'jfx javafx             @JavaFX.js',
+        'js jscript javascript  @JScript.js',
+        'perl pl                @Perl.js',
+        'php                    @Php.js',
+        'text plain             @Plain.js',
+        'py python              @Python.js',
+        'ruby rails ror rb      @Ruby.js',
+        'sass scss              @Sass.js',
+        'scala                  @Scala.js',
+        'sql                    @Sql.js',
+        'vb vbnet               @Vb.js',
+        'xml xhtml xslt html    @Xml.js'
+      ));
+      SyntaxHighlighter.all();
+    </script>
   </body>
 </html>
